@@ -1,13 +1,23 @@
 <template>
   <div id="app">
     <h1>{{ pizzaName }}</h1>
-    <app-pizza :pizzaName="pizzaName" :pizzaPrice="pizzaPrice"></app-pizza>
+    <app-pizza 
+      :pizzaName="pizzaName" 
+      :pizzaPrice="pizzaPrice"
+      @nameChanged="pizzaName = $event"
+      @counterUpdated="counter = $event"
+    ></app-pizza>
+
+    <app-counter>
+
+    </app-counter>
   </div>
 </template>
 
 <script>
 
 import Pizza from './Pizza.vue'
+import Counter from './Counter.vue'
 
 export default {
   name: 'app',
@@ -20,7 +30,8 @@ export default {
   },
 
   components: {
-    appPizza: Pizza
+    appPizza: Pizza,
+    appCounter: Counter
   }
 }
 </script>
